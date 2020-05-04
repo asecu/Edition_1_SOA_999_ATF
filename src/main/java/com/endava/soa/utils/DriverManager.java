@@ -27,9 +27,9 @@ public class DriverManager {
         return driver;
     }
 
-    public static WebDriver getAtfBrowser() throws AtfException {
+    public static WebDriver getAtfDriver() throws AtfException {
         String browserName = getBrowserProperty().toLowerCase();
-        switch (browserName){
+        switch (browserName) {
             case "chrome":
                 return getChrome();
             case "firefox":

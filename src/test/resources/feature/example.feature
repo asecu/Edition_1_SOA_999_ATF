@@ -1,4 +1,4 @@
-Feature: Feature title
+Feature: Test title
 
   Scenario: Dumb Scenario
     Given 3 plus 3 equals 6
