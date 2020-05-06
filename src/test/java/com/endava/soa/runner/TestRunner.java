@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
                 "com.endava.soa.stepdef",
                 "com.endava.soa.hook"
         },
-        tags = "@Gabriela or @Iulian or @Daniel or @Constantin or @Iuri"
+        tags = "@Daniel1 or @Gabriela or @Constantin or @Iurii or @Iulian"
 )
 public class TestRunner {
 }

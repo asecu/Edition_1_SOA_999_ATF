@@ -30,4 +30,13 @@ public class PropertyLoader {
         return properties.getProperty("homeURL");
     }
 
+    public static String getUsernameProperty(String userType) {
+        loadProperties();
+        return properties.getProperty(userType + ".username");
+    }
+
+    public static String getPasswordProperty(String userType) {
+        loadProperties();
+        return properties.getProperty(userType + ".password");
+    }
 }

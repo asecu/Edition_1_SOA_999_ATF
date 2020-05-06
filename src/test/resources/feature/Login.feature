@@ -1,0 +1,12 @@
+@Daniel
+Feature: User successfully login
+
+  Scenario: User is able to login
+    Given main page is opened
+    When user click authentication button
+    Then user is redirected to login page
+    When user inputs "user01" in username field
+    And user input "user01" in password field
+    And user click on login button
+    Then user is redirected to main page
+    And user is logged in
