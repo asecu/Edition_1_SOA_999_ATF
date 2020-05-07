@@ -13,10 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class AnouncePlacingMobilePhonePage {
     private WebDriver driver;
 
-    public AnouncePlacingMobilePhonePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
 
     @FindBy(xpath = "//input[@id='control_12']")
     private WebElement anounceTitleTextBox;
@@ -76,6 +72,20 @@ public class AnouncePlacingMobilePhonePage {
     private WebElement uploadPhoto;
     @FindBy(xpath = "//button[contains(@class,'button button--giant')]")
     private WebElement addAnouncementButton;
+    @FindBy(xpath = "//*[@id='js-pjax-container']/div/div[1]/div/div")
+    private WebElement alreadyHaveAnouncement;
+    @FindBy(xpath = "//input[@id='agree']")
+    private WebElement agreeCheckbox;
+
+    public WebElement getAlreadyHaveAnouncement() {
+        return alreadyHaveAnouncement;
+    }
+
+    public AnouncePlacingMobilePhonePage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
 
     public WebElement getAddAnouncementButton() {
         return addAnouncementButton;
@@ -85,8 +95,6 @@ public class AnouncePlacingMobilePhonePage {
         return uploadPhoto;
     }
 
-    @FindBy(xpath = "//input[@id='agree']")
-    private WebElement agreeCheckbox;
 
     public WebElement getAnounceTitleTextBoxWhenLoaded() {
         return (new WebDriverWait(driver, 10))
@@ -115,10 +123,14 @@ public class AnouncePlacingMobilePhonePage {
     }
 
     public Select getBrandDropdown() {
+
         return new Select(driver.findElement(By.xpath("//select[@id='control_589']")));
+
     }
 
     public Select getModelDropdown() {
+        new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//select[@id='control_590']")));
         return new Select(driver.findElement(By.xpath("//select[@id='control_590']")));
     }
 
@@ -127,6 +139,8 @@ public class AnouncePlacingMobilePhonePage {
     }
 
     public Select getDesignDropdown() {
+        new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//select[@id='control_592']")));
         return new Select(driver.findElement(By.xpath("//select[@id='control_592']")));
     }
 

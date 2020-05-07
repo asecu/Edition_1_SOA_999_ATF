@@ -1,10 +1,6 @@
 package com.endava.soa.stepdef;
 
-import com.endava.soa.pageObject.AddAnouncePageCategory;
-import com.endava.soa.pageObject.AnouncePlacingMobilePhonePage;
-import com.endava.soa.pageObject.HomePage;
-import com.endava.soa.pageObject.LoginPage;
-import com.endava.soa.pageObject.PhoneDevicesSubcategory;
+import com.endava.soa.pageObject.*;
 import com.endava.soa.utils.ScenarioContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -14,6 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import static com.endava.soa.constant.ScenarioKey.DRIVER;
 import static com.endava.soa.utils.ScenarioContext.getScenarioInstance;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class StepDefPhoneAnouncement {
@@ -92,9 +90,9 @@ public class StepDefPhoneAnouncement {
     }
 
     @And("user selects brand from brand dropdown")
-    public void userSelectsBrandFromBrandDropdown() throws InterruptedException {
+    public void userSelectsBrandFromBrandDropdown() {
         anouncePlacingMobilePhonePage.getBrandDropdown().selectByValue("1913");
-        Thread.sleep(2000);
+
     }
 
     @And("user selects model from model dropdown")
@@ -119,15 +117,15 @@ public class StepDefPhoneAnouncement {
     }
 
     @And("user selects ROM from ROM dropdown")
-    public void userSelectsROMFromROMDropdown() throws InterruptedException {
+    public void userSelectsROMFromROMDropdown() {
         anouncePlacingMobilePhonePage.getROMDropdown().selectByValue("23240");
-        Thread.sleep(2000);
+
     }
 
     @And("user selects RAM from RAM dropdown")
-    public void userSelectsRAMFromRAMDropdown() throws InterruptedException {
+    public void userSelectsRAMFromRAMDropdown() {
         anouncePlacingMobilePhonePage.getRAMDropdown().selectByValue("22189");
-        Thread.sleep(2000);
+
     }
 
     @And("user selects display size from display size dropdown")
@@ -141,9 +139,9 @@ public class StepDefPhoneAnouncement {
     }
 
     @And("user selects display type from display type dropdown")
-    public void userSelectsDisplayTypeFromDisplayTypeDropdown() throws InterruptedException {
+    public void userSelectsDisplayTypeFromDisplayTypeDropdown() {
         anouncePlacingMobilePhonePage.getDisplayTypeDropdown().selectByValue("23406");
-        Thread.sleep(2000);
+
     }
 
     @And("user selects camera rezolution from camera rezolution dropdown")
@@ -152,9 +150,9 @@ public class StepDefPhoneAnouncement {
     }
 
     @And("user checks fingerprint checkbox")
-    public void userChecksFingerprintCheckbox() throws InterruptedException {
+    public void userChecksFingerprintCheckbox() {
         anouncePlacingMobilePhonePage.getFingerprintCheckbox().click();
-        Thread.sleep(2000);
+
     }
 
     @And("user checks facial unlock checkbox")
@@ -223,16 +221,18 @@ public class StepDefPhoneAnouncement {
     }
 
     @And("user clicks Add announcement")
-    public void userClicksAddAnnouncement() {
+    public void userClicksAddAnnouncement() throws InterruptedException {
         anouncePlacingMobilePhonePage.getAddAnouncementButton().click();
     }
 
     @Then("user is redirected to publish success page")
     public void userIsRedirectedToPublishSuccessPage() {
-
+        String success = driver.getCurrentUrl();
+        assertThat(success, containsString("publish_success"));
     }
 
-    @And("a success message is displayed")
-    public void aSuccessMessageIsDisplayed() {
+    @And("an informative message is displayed that user already has placed an announcement in this category")
+    public void anInformativeMessageIsDisplayedThatUserAlreadyHasPlacedAnAnnouncementInThisCategory() {
+        anouncePlacingMobilePhonePage.getAlreadyHaveAnouncement().isDisplayed();
     }
 }

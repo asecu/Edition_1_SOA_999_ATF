@@ -11,10 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class LoginPage {
     private WebDriver driver;
 
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-    }
 
     @FindBy(xpath = "//input[contains(@name,'login')]")
     private WebElement usernameField;
@@ -23,6 +19,10 @@ public class LoginPage {
     @FindBy(xpath = "//button[contains(@class,'login__form__footer__submit')]")
     private WebElement loginButton;
 
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
 
     public WebDriver getDriver() {
         return driver;

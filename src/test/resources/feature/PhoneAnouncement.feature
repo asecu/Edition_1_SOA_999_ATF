@@ -1,9 +1,14 @@
-@Daniel1 @ignore
+@Daniel1
 Feature: User place an announcement
+  Description: User place an announcement in mobile phone category on first case.
+  User verify that an informative message is displayed when trying to place an announcement in the same category.
+
+
+  Background: User logs in and is located on home page
+    Given "Home" page is displayed
+    And "user03" user is logged in
 
   Scenario: User place an announcement of a mobile phone
-    Given "https://999.md/ro/" page is displayed
-    And "user02" user is logged in
     When user clicks add announcement announcement
     Then user is redirected to category page
     When user clicks phone and communication category
@@ -41,7 +46,12 @@ Feature: User place an announcement
     And user checks Agree checkbox
     And user clicks Add announcement
     Then user is redirected to publish success page
-    And a success message is displayed
 
-
-    
+  Scenario: User place an announcement in the same category,negative case
+    When user clicks add announcement announcement
+    Then user is redirected to category page
+    When user clicks phone and communication category
+    Then user is redirected to subcategories page
+    When user clicks mobile phones
+    Then user is redirected to complete add page
+    And an informative message is displayed that user already has placed an announcement in this category

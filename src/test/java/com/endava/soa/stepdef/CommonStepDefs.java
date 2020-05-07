@@ -10,9 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import static com.endava.soa.constant.ScenarioKey.DRIVER;
-import static com.endava.soa.utils.PropertyLoader.getHomeURLProperty;
-import static com.endava.soa.utils.PropertyLoader.getPasswordProperty;
-import static com.endava.soa.utils.PropertyLoader.getUsernameProperty;
+import static com.endava.soa.utils.PropertyLoader.*;
 import static com.endava.soa.utils.ScenarioContext.getScenarioInstance;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -36,7 +34,8 @@ public class CommonStepDefs {
 
     @Given("{string} page is displayed")
     public void pageIsDisplayed(String pageName) {
-        assertTrue(driver.getCurrentUrl().contains(pageName));
+        String URL = driver.getCurrentUrl();
+        assertEquals(URL, getHomeURLProperty() + "/");
     }
 
     @And("{string} user is logged in")
@@ -51,5 +50,4 @@ public class CommonStepDefs {
         assertEquals(URL, getHomeURLProperty() + "/");
         assertTrue(homePage.getFavoritesButton().isDisplayed());
     }
-
 }

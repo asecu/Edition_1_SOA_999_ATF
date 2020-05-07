@@ -59,7 +59,6 @@ public class HomePage {
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='m__user_panel']/div")));
     }
 
-
     public WebElement getAuthentificationOption() {
         return authentificationOption;
     }
@@ -89,4 +88,5 @@ public class HomePage {
     public WebElement getPersonalCabinet() {
         return personalCabinet;
     }
+
 }
