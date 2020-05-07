@@ -9,30 +9,23 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
-
 public class HomePage {
     private WebDriver driver;
-    @FindBy(xpath = "//a[contains(text(),'înregistrare')]")
-    private WebElement inregistrareWebElement;
+
     @FindBy(xpath = "//a[contains(@href,'user/login')]")
     private WebElement authentificationOption;
     @FindBy(xpath = "//input[@id='js-search-input']")
-    private WebElement cautareInAnunturiForm;
+    private WebElement searchInputField;
     @FindBy(xpath = "//button[@class='header__search__button']")
-    private WebElement cautaButton;
+    private WebElement searchButton;
     @FindBy(xpath = "//a[contains(@href,'/add')]")
     private WebElement addAnouncement;
-    @FindBy(xpath = "//a[contains(text(),'Transport')]")
-    private WebElement transportTab;
-    @FindBy(xpath = "//a[contains(text(),'Imobiliare')]")
-    private WebElement imobiliareTab;
-    @FindBy(xpath = "//a[contains(text(),'Aparate telefonice')]")
-    private WebElement aparateTelefoniceTab;
-    @FindBy(xpath = "//nav[contains(@class,'main-CatalogNavigation')]//ul")
-    private List<WebElement> anunturiList;
-    @FindBy(xpath = "//div[@id='js-recommended-container']")
-    private WebElement recomandateContainer;
+    @FindBy(xpath = "//a[contains(@href,'category/transport')]")
+    private WebElement transportCathegory;
+    @FindBy(xpath = "//a[contains(@href,'category/real-estate')]")
+    private WebElement realEstateCathegory;
+    @FindBy(xpath = "//a[contains(@href,'category/phone-and-communication')]")
+    private WebElement phoneAndCommunicationCathegory;
     @FindBy(xpath = "//button[contains(@class,'user-item-btn-settings')]")
     private WebElement settingsButton;
     @FindBy(xpath = "//a[@data-autotest='login']")
@@ -49,6 +42,8 @@ public class HomePage {
     private WebElement personalCabinet;
     @FindBy(xpath = "//a[contains(@href,'cabinet/favorites')]")
     private WebElement favoritesButton;
+    @FindBy(xpath = "//a[contains(@href, '/cabinet/items')]")
+    private WebElement myAnnouncementOption;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -64,45 +59,19 @@ public class HomePage {
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='m__user_panel']/div")));
     }
 
-    public WebElement getInregistrareWebElement() {
-        return inregistrareWebElement;
-    }
 
     public WebElement getAuthentificationOption() {
         return authentificationOption;
     }
 
-    public WebElement getCautareInAnunturiForm() {
-        return cautareInAnunturiForm;
-    }
-
-    public WebElement getCautaButton() {
-        return cautaButton;
+    public WebElement getSearchInputField() {
+        return searchInputField;
     }
 
     public WebElement getAddAnouncement() {
         return addAnouncement;
     }
 
-    public WebElement getTransportTab() {
-        return transportTab;
-    }
-
-    public WebElement getImobiliareTab() {
-        return imobiliareTab;
-    }
-
-    public WebElement getAparateTelefoniceTab() {
-        return aparateTelefoniceTab;
-    }
-
-    public List<WebElement> getAnunturiList() {
-        return anunturiList;
-    }
-
-    public WebElement getRecomandateContainer() {
-        return recomandateContainer;
-    }
 
     public void login(User user) {
         loginButton.click();
