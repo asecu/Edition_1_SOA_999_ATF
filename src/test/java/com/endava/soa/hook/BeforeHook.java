@@ -1,7 +1,6 @@
 package com.endava.soa.hook;
 
 
-import com.endava.soa.utils.AtfException;
 import com.endava.soa.utils.ScenarioContext;
 import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +14,7 @@ public class BeforeHook {
     ScenarioContext scenarioContext = getScenarioInstance();
 
     @Before
-    public void setUp() throws AtfException {
+    public void setUp() {
         WebDriver driver = getAtfDriver();
         driver.manage().window().maximize();
         driver.get(getHomeURLProperty());

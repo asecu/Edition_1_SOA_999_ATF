@@ -1,4 +1,4 @@
-@Daniel1
+@Daniel1 @ignore
 Feature: User place an announcement
 
   Scenario: User place an announcement of a mobile phone

@@ -11,23 +11,18 @@ import static java.lang.System.setProperty;
 public class DriverManager {
     private static final String CHROME_DRIVER = "chromedriver.exe";
     private static final String FIREFOX_DRIVER = "geckodriver.exe";
-    private static WebDriver driver = null;
 
     private static WebDriver getFirefox() {
         setProperty("webdriver.gecko.driver", getDriverPathProperty() + FIREFOX_DRIVER);
-        if (driver == null)
-            driver = new FirefoxDriver();
-        return driver;
+        return new FirefoxDriver();
     }
 
     private static WebDriver getChrome() {
         setProperty("webdriver.chrome.driver", getDriverPathProperty() + CHROME_DRIVER);
-        if (driver == null)
-            driver = new ChromeDriver();
-        return driver;
+        return new ChromeDriver();
     }
 
-    public static WebDriver getAtfDriver() throws AtfException {
+    public static WebDriver getAtfDriver() {
         String browserName = getBrowserProperty().toLowerCase();
         switch (browserName) {
             case "chrome":
@@ -35,7 +30,7 @@ public class DriverManager {
             case "firefox":
                 return getFirefox();
             default:
-                throw new AtfException("Unsupported browser type");
+                throw new RuntimeException("Unsupported browser type");
         }
     }
 }

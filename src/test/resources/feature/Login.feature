@@ -1,4 +1,4 @@
-@Daniel
+@Daniel @ignore
 Feature: User successfully login
 
   Scenario: User is able to login

@@ -1,17 +1,23 @@
 package com.endava.soa.stepdef;
 
-import com.endava.soa.pageObject.*;
-import com.endava.soa.utils.AtfException;
+import com.endava.soa.pageObject.AddAnouncePageCategory;
+import com.endava.soa.pageObject.AnouncePlacingMobilePhonePage;
+import com.endava.soa.pageObject.HomePage;
+import com.endava.soa.pageObject.LoginPage;
+import com.endava.soa.pageObject.PhoneDevicesSubcategory;
+import com.endava.soa.utils.ScenarioContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import static com.endava.soa.utils.DriverManager.getAtfDriver;
+import static com.endava.soa.constant.ScenarioKey.DRIVER;
+import static com.endava.soa.utils.ScenarioContext.getScenarioInstance;
 
 
 public class StepDefPhoneAnouncement {
+    ScenarioContext scenarioContext = getScenarioInstance();
     static WebDriver driver;
 
     private HomePage homePage;
@@ -20,8 +26,8 @@ public class StepDefPhoneAnouncement {
     private AnouncePlacingMobilePhonePage anouncePlacingMobilePhonePage;
     private PhoneDevicesSubcategory phoneDevicesSubcategory;
 
-    public StepDefPhoneAnouncement() throws AtfException {
-        driver = getAtfDriver();
+    public StepDefPhoneAnouncement() {
+        driver = (WebDriver) scenarioContext.getData(DRIVER);
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
         addAnouncePageCategory = new AddAnouncePageCategory(driver);
