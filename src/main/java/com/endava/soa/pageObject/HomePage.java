@@ -38,25 +38,38 @@ public class HomePage {
     private WebElement submitButton;
     @FindBy(id = "topbar-panel")
     private WebElement topPanelFrame;
-    @FindBy(xpath = "//div[@data-autotest='cabinet']")
+    @FindBy(xpath = "//*[@id='m__user_panel']/div")
     private WebElement personalCabinet;
     @FindBy(xpath = "//a[contains(@href,'cabinet/favorites')]")
     private WebElement favoritesButton;
     @FindBy(xpath = "//a[contains(@href, '/cabinet/items')]")
     private WebElement myAnnouncementOption;
 
+    @FindBy (xpath = "//*[@id='js-recommended-container']/a[1]/div/div[2]")
+    private WebElement firstRecommendation;
+
+
+
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+    public WebElement getFirstRecommendation() {return firstRecommendation; }
 
     public WebElement getFavoritesButton() {
         return favoritesButton;
     }
 
+
     public WebElement cabinetPersonal() {
         return (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='m__user_panel']/div")));
+    }
+
+
+    public WebElement getMyAnnouncementOption() {
+        return myAnnouncementOption;
     }
 
 
@@ -66,6 +79,11 @@ public class HomePage {
 
     public WebElement getSearchInputField() {
         return searchInputField;
+    }
+
+    public WebElement getSearchButton() {
+        return searchButton;
+
     }
 
     public WebElement getAddAnouncement() {
@@ -79,15 +97,14 @@ public class HomePage {
         passwordField.sendKeys(user.getPassword());
         submitButton.click();
     }
-
     public void accessSettingsTab() {
         driver.switchTo().frame(topPanelFrame);
         settingsButton.click();
         driver.switchTo().defaultContent();
     }
-
     public WebElement getPersonalCabinet() {
-        return personalCabinet;
+        return (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='m__user_panel']/div")));
     }
 
     public void openTransportsPage() {
@@ -102,3 +119,6 @@ public class HomePage {
     }
 
 }
+
+
+

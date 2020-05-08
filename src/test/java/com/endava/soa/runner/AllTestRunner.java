@@ -12,7 +12,9 @@ import org.junit.runner.RunWith;
                 "com.endava.soa.stepdef",
                 "com.endava.soa.hook"
         },
+
         tags = {"@All"}
+
 )
 public class AllTestRunner {
 }
