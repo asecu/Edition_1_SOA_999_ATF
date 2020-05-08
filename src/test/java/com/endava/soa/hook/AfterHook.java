@@ -13,6 +13,6 @@ public class AfterHook {
     @After
     public void afterHook() {
         WebDriver driver = (WebDriver) scenarioContext.getData(DRIVER);
-        driver.close();
+        driver.quit();
     }
 }

@@ -1,4 +1,4 @@
-@Iulian @All
+@All
 Feature: Searching offers
 
   Scenario Outline: Search for an existing product

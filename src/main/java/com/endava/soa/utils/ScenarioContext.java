@@ -17,7 +17,7 @@ public class ScenarioContext {
         return INSTANCE;
     }
 
-    public void save(ScenarioKey key, Object object) {
+    public void saveData(ScenarioKey key, Object object) {
         this.context.put(key, object);
     }
 

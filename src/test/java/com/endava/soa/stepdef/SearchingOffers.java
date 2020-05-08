@@ -37,7 +37,7 @@ public class SearchingOffers {
   @When("user searches for {string}")
   public void userSearchesFor(String data) {
     homePage.searchAdds(data);
-    scenarioContext.save(SEARCHED_VALUE, data);
+    scenarioContext.saveData(SEARCHED_VALUE, data);
   }
 
   @Then("the searching result page is displayed")

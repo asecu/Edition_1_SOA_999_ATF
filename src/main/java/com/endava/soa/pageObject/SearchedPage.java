@@ -45,7 +45,7 @@ public class SearchedPage {
   }
 
   public void selectElementFromSearchResultsById(int elementId) {
-    scenarioContext.save(SELECTED_ITEM, searchResultsList.get(elementId).getText());
+    scenarioContext.saveData(SELECTED_ITEM, searchResultsList.get(elementId).getText());
     searchResultsList.get(elementId).click();
   }
 

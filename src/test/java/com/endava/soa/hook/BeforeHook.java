@@ -18,6 +18,6 @@ public class BeforeHook {
         WebDriver driver = getAtfDriver();
         driver.manage().window().maximize();
         driver.get(getHomeURLProperty());
-        scenarioContext.save(DRIVER, driver);
+        scenarioContext.saveData(DRIVER, driver);
     }
 }
