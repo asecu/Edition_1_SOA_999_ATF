@@ -14,5 +14,5 @@ import org.junit.runner.RunWith;
         },
         tags = "@Daniel1 or @Gabriela or @Constantin or @Iurii or @Iulian"
 )
-public class TestRunner {
+public class CustomTestRunner {
 }

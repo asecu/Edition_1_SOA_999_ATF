@@ -1,3 +1,4 @@
+@All
 Feature: Edit Account Details
 @Gabriela @ignore
 Scenario: Edit general details

@@ -89,4 +89,10 @@ public class HomePage {
         return personalCabinet;
     }
 
+    public void searchAdds(String string) {
+        searchInputField.clear();
+        searchInputField.sendKeys(string);
+        searchButton.click();
+    }
+
 }

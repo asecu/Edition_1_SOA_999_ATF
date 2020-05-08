@@ -1,4 +1,4 @@
-@Daniel1
+@All
 Feature: User place an announcement
   Description: User place an announcement in mobile phone category on first case.
   User verify that an informative message is displayed when trying to place an announcement in the same category.

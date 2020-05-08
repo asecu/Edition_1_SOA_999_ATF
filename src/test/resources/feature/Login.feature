@@ -1,4 +1,4 @@
-@Daniel @ignore
+@All
 Feature: User successfully login
 Description: The purpose of this feature is to test that user is able to login using valid credentials
 

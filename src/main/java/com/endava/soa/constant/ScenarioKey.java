@@ -6,5 +6,7 @@ And to avoid random key name
  */
 public enum ScenarioKey {
     DRIVER,
-
+    SEARCHED_VALUE,
+    SELECTED_ITEM,
+    INFORMATIVE_MESSAGE
 }
