@@ -52,7 +52,6 @@ public class StepDefLogin {
         assertTrue(loginPage.getUsernameFieldWhenLoaded().isDisplayed());
     }
 
-
     @When("user inputs {string} in username field")
     public void userInputsInUsernameField(String userType) {
         loginPage.getUsernameFieldWhenLoaded().sendKeys(getUsernameProperty(userType));
